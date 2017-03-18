@@ -1,0 +1,9 @@
+#release环境下的配置
+server:
+  port: 8083
+  context-path: /junmeng
+
+#自定义属性,需要有对应的类，然后通过Autowired即可使用
+Girl:
+  name: release
+  age: 17

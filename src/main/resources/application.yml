@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: debug #在这里指定使用哪个配置文件
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/db_springboot
+      username: root
+      password: root
+  jpa:
+    hibernate:
+      #ddl-auto: create #自动建表,每次都会创建空表
+      #ddl-auto: create-drop #自动建表,应用停止时将表删除
+      #ddl-auto: validate #验证表结构是否一致，不一致报错
+      #ddl-auto: none #什么也不做
+      ddl-auto: update #自动建表
+    show-sql: true
+
+
+#自定义属性,需要有对应的类，然后通过Autowired即可使用
+#优先级较低，如果active中的配置文件也有相同的属性则以其为准，下面的属性就失效了
+Girl:
+  name: junmeng
+  age: 18

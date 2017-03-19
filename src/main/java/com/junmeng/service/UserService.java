@@ -26,7 +26,6 @@ public class UserService {
         return userRepostiory.save(user);
     }
 
-
     public User find(int id){
         return userRepostiory.findOne(id);
     }
@@ -70,4 +69,23 @@ public class UserService {
         }
     }
 
+    public List<User> findBySexAndAge(int sex,int age){
+        return userRepostiory.findBySexAndAge(sex,age);
+    }
+
+    public List<User> findBySexOrAge(int sex,int age){
+        return userRepostiory.findBySexOrAge(sex,age);
+    }
+
+    public List<User> findByNameLike(String name){
+        return userRepostiory.findByNameLike(name);
+    }
+    public List<User> findByNameLike2(String name){
+        return userRepostiory.findByNameLike2(name);
+    }
+
+    @Transactional
+    public int updateName(int id,String newName){
+        return userRepostiory.updateName(id,newName);
+    }
 }

@@ -3,13 +3,15 @@ package com.junmeng.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by HWJ on 2017/3/18.
  */
-@Entity(name = "tb_user")
+@Entity
+@Table(name="tb_user")
 public class User {
 
     @Id

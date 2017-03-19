@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("user")
 public class UserController {
 
-    public static final Logger logger= LoggerFactory.getLogger(UserController.class);
+    public static final Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserService userService;
 
@@ -45,16 +45,17 @@ public class UserController {
 
     /**
      * 如果User里加了限制的注解，这里可在BindingResult得到验证的结果
+     *
      * @param user
      * @param bindingResult
      * @return
      */
     @PostMapping("/add2")
     public Object addUser(@Valid User user, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             //输出验证不通过的信息
             logger.error(bindingResult.getFieldError().getDefaultMessage());
-            return ResultUtil.error(-1,bindingResult.getFieldError().getDefaultMessage());
+            return ResultUtil.error(-1, bindingResult.getFieldError().getDefaultMessage());
         }
         return ResultUtil.success(userService.update(user));
     }
@@ -83,7 +84,6 @@ public class UserController {
         user.setSex(sex);
         return userService.update(user);
     }
-
 
 
     @DeleteMapping("/{id}")
@@ -116,5 +116,32 @@ public class UserController {
     }
 
 
+    @PostMapping("/findBySexAndAge")
+    public List<User> findBySexAndAge(@RequestParam("age") int age,
+                                      @RequestParam("sex") int sex) {
+        return userService.findBySexAndAge(sex, age);
+    }
+
+    @PostMapping("/findBySexOrAge")
+    public List<User> findBySexOrAge(@RequestParam("age") int age,
+                                      @RequestParam("sex") int sex) {
+        return userService.findBySexOrAge(sex, age);
+    }
+
+    @PostMapping("/findByNameLike")
+    public List<User> findByNameLike(@RequestParam("name") String name) {
+        return userService.findByNameLike(name);
+    }
+
+    @PostMapping("/findByNameLike2")
+    public List<User> findByNameLike2(@RequestParam("name") String name) {
+        return userService.findByNameLike2(name);
+    }
+
+    @PostMapping("/updateName")
+    public int updateName(@RequestParam("name") String newName,
+                          @RequestParam("id") int id) {
+        return userService.updateName(id,newName);
+    }
 
 }

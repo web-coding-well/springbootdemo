@@ -3,6 +3,7 @@ package com.junmeng.controller;
 import com.junmeng.bean.Girl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -44,6 +45,11 @@ public class NewController {
                 .append(" age=").append(age).append("</br>")
                 .append("id=").append(id);
         return builder.toString();
+    }
+
+    @GetMapping(value = "/index")
+    public String gotoIndex(ModelMap model) {
+         return "page/index";
     }
 
 }

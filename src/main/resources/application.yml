@@ -15,6 +15,9 @@ spring:
       ddl-auto: update #自动建表
     show-sql: true
 
+  #mvc:
+    #view:
+      #suffix: .html
 
 #自定义属性,需要有对应的类，然后通过Autowired即可使用
 #优先级较低，如果active中的配置文件也有相同的属性则以其为准，下面的属性就失效了

@@ -28,3 +28,19 @@ a spring boot demo project
 </plugin>
 ```
 * 快捷键Ctrl+F9，build project后刷新即可看到代码改动后的样子
+
+---
+## 添加Thymeleaf或FreeMarker支持
+* 两者可以共存，只是Thymeleaf后缀为html,浏览器可以直接渲染，而FreeMarker后缀为ftl
+* 官方推荐使用Thymeleaf
+
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-freemarker</artifactId>
+</dependency>
+```

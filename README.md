@@ -7,6 +7,7 @@ a spring boot demo project
 * Windows 10
 * JDK 1.8
 * SpringBoot 1.5.2
+* Maven 3.3.9
 
 ---
 ## 阿里云镜像

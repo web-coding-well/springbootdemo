@@ -8,6 +8,7 @@ a spring boot demo project
 * JDK 1.8
 * SpringBoot 1.5.2
 * Maven 3.3.9
+* Mysql 5.7.16
 
 ---
 ## 阿里云镜像

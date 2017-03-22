@@ -28,7 +28,7 @@ a spring boot demo project
 ## 打包jar发布
 
 * 进入工程主目录
-* cmd:mvn package -Dmavne.test.skip=true
+* cmd:mvn package -Dmaven.test.skip=true
 * 在target中找到生成的****.jar
 * cmd:java -jar ****.jar
 

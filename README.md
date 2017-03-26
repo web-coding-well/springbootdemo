@@ -52,6 +52,15 @@ a spring boot demo project
 * taskkill /f /t /im Tencentdl.exe
 
 ---
+## 日志
+
+* 指定日志文件
+* logging.file=./springboot.log
+* 指定日志级别
+* logging.level=info
+* 代码使用日志
+* Logger logger =  LoggerFactory.getLogger(this.getClass());
+---
 ## 实现热部署（不完全）
 * pom.xml中添加
 ```

@@ -31,7 +31,25 @@ a spring boot demo project
 * 进入工程主目录
 * cmd:mvn package -Dmaven.test.skip=true
 * 在target中找到生成的****.jar
-* cmd:java -jar ****.jar
+* 运行：cmd:java -jar ****.jar
+
+---
+## 配置文件
+* application.properties跟打包好的jar包放在同一目录即可使外部的application.properties生效
+* 如果只是想更改端口号，则可以
+* cmd:java -Dserver.port=8089 -jar ****.jar
+
+---
+## 解决端口被占用
+
+* 找到端口占用的pid(最后一个)
+* cmd:netstat -ano|findstr "8089"
+* 根据pid查看进程（比如查到是Tencentdl.exe）
+* cmd:tasklist|findstr  "2656"
+* 强制杀死进程id
+* cmd:taskkill /F /pid 2656
+* 或者根据查出的进程强制杀死进程
+* taskkill /f /t /im Tencentdl.exe
 
 ---
 ## 实现热部署（不完全）

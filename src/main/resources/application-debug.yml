@@ -7,3 +7,16 @@ server:
 Girl:
   name: debug
   age: 16
+
+spring:
+#实际上配的就是这个类ThymeleafProperties
+#官方推荐使用thymeleaf
+#thymeleaf与FreeMarker是可以共存的
+  thymeleaf:
+    cache: false
+    enabled: true
+#实际上配的就是这个类FreeMarkerProperties
+  freemarker:
+    cache: false
+    enabled: true
+

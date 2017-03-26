@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>spring boot index</title>
 </head>
 <body>
 Hello, welcome to my spring Boot!
+<p th:text="'Hello, ' + ${name} + '!'"/>
 <img src="images/Login_username.png" style="background: black"/>
 <img src="images/Login_password.png" style="background: black"/>
 </body>
 </html>
+

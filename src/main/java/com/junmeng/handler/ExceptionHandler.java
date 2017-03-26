@@ -13,17 +13,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @ControllerAdvice
 public class ExceptionHandler {
-    public static final Logger logger= LoggerFactory.getLogger(ExceptionHandler.class);
+    public  final Logger logger= LoggerFactory.getLogger(this.getClass());
     @org.springframework.web.bind.annotation.ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Result handle(Exception e){
+        e.printStackTrace();
         if(e instanceof CommonException){
             CommonException ce=(CommonException)e;
             return ResultUtil.error(ce.errorCode,ce.getMessage());
         }
-        logger.error("系统遗产{}",e);
-       // return ResultUtil.error(-1,e.getMessage());
-        return ResultUtil.error(-1,"未知错误");
+        logger.error("系统异常:"+e.getClass());
+
+        return ResultUtil.error(-1,"未知错误",e.getClass());
     }
 
 }

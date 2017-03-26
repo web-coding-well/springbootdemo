@@ -19,6 +19,7 @@ public class HttpAspect {
 
     public static final Logger logger = org.slf4j.LoggerFactory.getLogger(HttpAspect.class);
 
+    //表示UserController的所有方法
     @Pointcut("execution(public * com.junmeng.controller.UserController.*(..))")
     public void log() {
     }

@@ -23,4 +23,12 @@ public class ResultUtil {
         result.setMessage(message);
         return result;
     }
+
+    public static Result error(int errorCode,String message,Object data){
+        Result result=new Result();
+        result.setCode(errorCode);
+        result.setData(data);
+        result.setMessage(message);
+        return result;
+    }
 }

@@ -19,8 +19,17 @@ spring:
     #view:
       #suffix: .html
 
+#日志
+logurl: ./springbootdemo.log
+logging:
+  file: ${logurl}
+  level: info
+
+
 #自定义属性,需要有对应的类，然后通过Autowired即可使用
 #优先级较低，如果active中的配置文件也有相同的属性则以其为准，下面的属性就失效了
 Girl:
   name: junmeng
   age: 18
+
+custom: Thymeleaf

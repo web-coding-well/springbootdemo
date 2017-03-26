@@ -36,7 +36,9 @@ a spring boot demo project
 ---
 ## 配置文件
 * application.properties跟打包好的jar包放在同一目录即可使外部的application.properties生效
-* 如果只是想更改端口号，则可以
+* 或者在当前目录的 “/config”的子目录下
+* 当前目录是指****.jar包的目录下,config目录下的application.properties优先级较高
+* 如果只是想更改端口号，则可以通过命令行（优先级最高）
 * cmd:java -Dserver.port=8089 -jar ****.jar
 
 ---

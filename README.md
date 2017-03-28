@@ -98,3 +98,7 @@ a spring boot demo project
 	<artifactId>spring-boot-starter-freemarker</artifactId>
 </dependency>
 ```
+---
+## IDEA REST Client
+* 模拟客户端请求时可用IDEA自带的rest client
+* 按下Ctrl+Shift+a,输入rest client即可找到入口

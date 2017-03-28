@@ -63,13 +63,13 @@ public interface UserRepostiory extends JpaRepository<User, Integer> {
     List<User> findBySexOrAge(int sex, int age);
 
     /**
-     * 如果是like，后面的参数需要前面或者后面加“%”
+     * %表示匹配任意字符
      * @param name
      * @return
      */
-    @Query("select user from User user where user.name like ?1%")
+    @Query("select user from User user where user.name like \'?1%\'")
     //@Query("select user from User user where user.name like %?1%")
-    //@Query("select user from User user where user.name like %?1")//实际上这种用法总是查不到，因此只有一个%应该不能放前面
+    //@Query("select user from User user where user.name like %?1")
     List<User> findByNameLike(String name);
 
     /**

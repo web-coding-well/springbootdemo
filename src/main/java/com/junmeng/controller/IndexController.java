@@ -1,6 +1,8 @@
 package com.junmeng.controller;
 
+import com.junmeng.AsyncDemo;
 import com.junmeng.utils.PropertiesUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,8 +17,14 @@ import java.util.Date;
 @RestController
 public class IndexController {
 
+    @Autowired
+    AsyncDemo asyncDemo;
+
     @GetMapping(value = "/index")
-    public ModelAndView gotoIndex(ModelMap model) {
+    public ModelAndView gotoIndex(ModelMap model) throws Exception {
+        asyncDemo.doTaskOne();
+        asyncDemo.doTaskTwo();
+        asyncDemo.doTaskThree();
        // model.addAttribute("name", "Thymeleaf");
         model.addAttribute("name", new PropertiesUtil().getProperty("custom"));
         return new ModelAndView("page/index");

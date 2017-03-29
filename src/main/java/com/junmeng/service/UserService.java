@@ -1,7 +1,7 @@
 package com.junmeng.service;
 
 import com.junmeng.enums.ResultCode;
-import com.junmeng.exception.CommonException;
+import com.junmeng.exception.BussinessException;
 import com.junmeng.model.User;
 import com.junmeng.repository.UserRepostiory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,13 +58,13 @@ public class UserService {
         userRepostiory.save(user2);
     }
 
-    public void getAge(int id)throws  CommonException{
+    public void getAge(int id)throws BussinessException {
         User user=userRepostiory.findOne(id);
         if(user==null){
-            throw new CommonException(ResultCode.CANNOT_FIND,"找不到用户");
+            throw new BussinessException(ResultCode.CANNOT_FIND,"找不到用户");
         }else{
             if(user.getAge()<18){
-                throw new CommonException(ResultCode.UNDER_AGE,"未满18周岁");
+                throw new BussinessException(ResultCode.UNDER_AGE,"未满18周岁");
             }
         }
     }

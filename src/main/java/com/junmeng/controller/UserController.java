@@ -1,6 +1,6 @@
 package com.junmeng.controller;
 
-import com.junmeng.exception.CommonException;
+import com.junmeng.exception.BussinessException;
 import com.junmeng.model.User;
 import com.junmeng.service.UserService;
 import com.junmeng.utils.ResultUtil;
@@ -111,7 +111,7 @@ public class UserController {
 
 
     @GetMapping("/getAge/{id}")
-    public void getAge(@PathVariable("id") int id) throws CommonException {
+    public void getAge(@PathVariable("id") int id) throws BussinessException {
         userService.getAge(id);
     }
 

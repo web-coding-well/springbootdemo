@@ -14,6 +14,7 @@ a spring boot demo project
 ## 功能记录
 
 * 打包部署
+* 事务管理
 * 统一异常处理
 * 拦截器 
 * AOP切面演示

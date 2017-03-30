@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,9 +25,9 @@ public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Result handle(Exception e) {
-        e.printStackTrace();
-        writeLog(e);
+    public Result handle(HttpServletRequest request, Exception e) {
+        //e.printStackTrace();
+        writeLog(request,e);
         if (e instanceof BussinessException) {
             BussinessException ce = (BussinessException) e;
             return ResultUtil.error(ce.errorCode, ce.getMessage());
@@ -39,7 +40,7 @@ public class ExceptionHandler {
      * 记录异常日志
      * @param ex
      */
-    public void writeLog(Exception ex) {
+    public void writeLog(HttpServletRequest request,Exception ex) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         //查找10天前的文件，如果存在则删除
         Date date=DateUtil.getDate(-10);
@@ -47,7 +48,7 @@ public class ExceptionHandler {
         if(file.exists()){
             file.delete();
         }
-        LogUtil.writeExceptionLog(ex,"./log/"+sdf.format(new Date())+".log",10*1024*1024);
+        LogUtil.writeLog(request,ex,"./log/"+sdf.format(new Date())+".log",10*1024*1024);
     }
 
 }

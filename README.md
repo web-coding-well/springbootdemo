@@ -11,6 +11,16 @@ a spring boot demo project
 * Mysql 5.7.16
 
 ---
+## 功能记录
+
+* 打包部署
+* 统一异常处理
+* 拦截器 
+* AOP切面演示
+* 日志记录
+* 错误页
+* 异步任务
+---
 ## 阿里云镜像
 * 修改maven根目录下的conf文件夹中的setting.xml
 ```
@@ -102,3 +112,45 @@ a spring boot demo project
 ## IDEA REST Client
 * 模拟客户端请求时可用IDEA自带的rest client
 * 按下Ctrl+Shift+a,输入rest client即可找到入口
+
+---
+## 错误页
+### 方式一
+* 在SpringBootApplication中添加
+```
+ @Bean
+    public EmbeddedServletContainerCustomizer containerCustomizer() {
+        return new EmbeddedServletContainerCustomizer() {
+            @Override
+            public void customize(ConfigurableEmbeddedServletContainer container) {
+
+                ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/error/401.html");
+                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/error/404.html");
+                ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error/500.html");
+
+                container.addErrorPages(error401Page, error404Page, error500Page);
+            }
+        };
+    }
+```
+* 在resources/static目录下添加errors/401.html,errors/404.html,errors/500.html即可
+### 方式二
+* 在SpringBootApplication中添加
+```
+ @Bean
+    public EmbeddedServletContainerCustomizer containerCustomizer() {
+        return new EmbeddedServletContainerCustomizer() {
+            @Override
+            public void customize(ConfigurableEmbeddedServletContainer container) {
+
+                ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/error/401");
+                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/error/404");
+                ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error/500");
+
+                container.addErrorPages(error401Page, error404Page, error500Page);
+            }
+        };
+    }
+```
+* 在resources/templates目录下添加error/401.html,error/404.html,error/500.html
+* 定义好controller指向error/401,error/404,error/500,祥看demo里ErrorController

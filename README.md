@@ -124,9 +124,9 @@ a spring boot demo project
             @Override
             public void customize(ConfigurableEmbeddedServletContainer container) {
 
-                ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/error/401.html");
-                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/error/404.html");
-                ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error/500.html");
+                ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/errors/401.html");
+                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/errors/404.html");
+                ErrorPage error500Page = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/errors/500.html");
 
                 container.addErrorPages(error401Page, error404Page, error500Page);
             }
@@ -153,4 +153,4 @@ a spring boot demo project
     }
 ```
 * 在resources/templates目录下添加error/401.html,error/404.html,error/500.html
-* 定义好controller指向error/401,error/404,error/500,祥看demo里ErrorController
+* 定义好controller指向error/401,error/404,error/500,详看demo里ErrorController

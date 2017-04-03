@@ -21,6 +21,7 @@ a spring boot demo project
 * 日志记录
 * 错误页
 * 异步任务
+* redis
 ---
 ## 阿里云镜像
 * 修改maven根目录下的conf文件夹中的setting.xml
@@ -155,3 +156,14 @@ a spring boot demo project
 ```
 * 在resources/templates目录下添加error/401.html,error/404.html,error/500.html
 * 定义好controller指向error/401,error/404,error/500,详看demo里ErrorController
+
+---
+## Redis
+* 安装windows版本：https://github.com/MSOpenTech/redis/releases
+* pom.xml
+```
+ <dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```

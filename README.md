@@ -22,6 +22,7 @@ a spring boot demo project
 * 错误页
 * 异步任务
 * redis
+* 多文件上传
 ---
 ## 阿里云镜像
 * 修改maven根目录下的conf文件夹中的setting.xml

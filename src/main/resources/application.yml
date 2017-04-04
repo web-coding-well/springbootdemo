@@ -15,6 +15,25 @@ spring:
       ddl-auto: update #自动建表
     show-sql: true
 
+  redis:
+    host: # Redis服务器地址
+    pool:
+      max-active: 8 # 连接池最大连接数（使用负值表示没有限制）
+      max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-idle: 8 # 连接池中的最大空闲连接
+      min-idle: 0 # 连接池中的最小空闲连接
+    timeout: 0 # 连接超时时间（毫秒）
+    password: # Redis服务器连接密码（默认为空）
+    port: 6379
+    database: 0 #Redis数据库索引（默认为0）
+
+  http:
+   multipart:
+     enabled: true #默认支持文件上传.
+     file-size-threshold: 0 #支持文件写入磁盘.
+    # location: ./upload/tmp/ # 上传文件的临时目录
+     max-file-size: 5MB # 最大支持文件大小
+     max-request-size: 10MB # 最大支持请求大小
 
   #mvc:
     #view:
@@ -26,6 +45,7 @@ logging:
   #指定日志存放文件
   file: ${logurl}
   level: debug
+
 
 
 #自定义属性,需要有对应的类，然后通过Autowired即可使用

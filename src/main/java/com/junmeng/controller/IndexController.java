@@ -20,6 +20,7 @@ public class IndexController {
     @Autowired
     AsyncDemo asyncDemo;
 
+
     @GetMapping(value = "/index")
     public ModelAndView gotoIndex(ModelMap model) throws Exception {
         asyncDemo.doTaskOne();

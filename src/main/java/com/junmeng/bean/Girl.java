@@ -3,13 +3,15 @@ package com.junmeng.bean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 /**
  * 此对象是配置文件中定义的Girl对象
  * Created by HWJ on 2017/3/18.
  */
 @ConfigurationProperties(prefix = "Girl") //获取前缀是Girl的配置
 @Component
-public class Girl {
+public class Girl implements Serializable{
     private String name;
     private Integer age;
 
@@ -27,5 +29,13 @@ public class Girl {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

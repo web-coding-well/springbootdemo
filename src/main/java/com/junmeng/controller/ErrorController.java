@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
+ * 自定义错误页面
  * Created by HWJ on 2017/3/30.
  */
 @RestController

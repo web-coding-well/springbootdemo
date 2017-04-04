@@ -8,8 +8,10 @@ import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
+@EnableTransactionManagement//开启事务支持
 @EnableAsync //使得@Async注解能够生效
 public class SpringBootDemoApplication {
 
@@ -17,6 +19,7 @@ public class SpringBootDemoApplication {
 		SpringApplication.run(SpringBootDemoApplication.class, args);
 	}
 
+	//指定错误页
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
         return new EmbeddedServletContainerCustomizer() {
@@ -31,4 +34,11 @@ public class SpringBootDemoApplication {
             }
         };
     }
+
+/*
+    @Bean
+    public RedisTemplate provideRedisTemplate(){
+	    return new RedisTemplate();
+    }*/
+
 }

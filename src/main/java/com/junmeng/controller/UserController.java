@@ -4,9 +4,12 @@ import com.junmeng.exception.BussinessException;
 import com.junmeng.model.User;
 import com.junmeng.service.UserService;
 import com.junmeng.utils.ResultUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +21,14 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("user")
+@Api(description = "用户管理")
 public class UserController {
 
     public static final Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserService userService;
 
-
+    @ApiOperation(value = "获得所有用户列表", notes = "获得所有用户列表")
     @GetMapping(value = "/getAll")
     public List<User> getUserList() {
         return userService.getAllUsers();
@@ -124,7 +128,7 @@ public class UserController {
 
     @PostMapping("/findBySexOrAge")
     public List<User> findBySexOrAge(@RequestParam("age") int age,
-                                      @RequestParam("sex") int sex) {
+                                     @RequestParam("sex") int sex) {
         return userService.findBySexOrAge(sex, age);
     }
 
@@ -141,7 +145,23 @@ public class UserController {
     @PostMapping("/updateName")
     public int updateName(@RequestParam("name") String newName,
                           @RequestParam("id") int id) {
-        return userService.updateName(id,newName);
+        return userService.updateName(id, newName);
     }
+
+    @GetMapping("/findAll")
+    public Page<User> findAll(@RequestParam("page") int page,//页码，从0开始
+                              @RequestParam("size") int size) {
+        Page<User> pages = userService.findAll(page, size);
+        pages.getContent();//当前页的记录集合
+        pages.getNumber();//当前第几页，从0开始
+        pages.getNumberOfElements();//当前页的记录数
+        return pages;
+    }
+
+    @GetMapping("/exists/{id}")
+    public boolean exists(@PathVariable("id") int id) {
+        return userService.exists(id);
+    }
+
 
 }

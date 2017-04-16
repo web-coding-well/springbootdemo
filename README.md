@@ -39,6 +39,11 @@ a spring boot demo project
 * 如果是IDEA自身的Maven,则右键工程-->Maven-->Create "settings.xml",在里面添加上上述镜像，然后体验如飞的速度
 
 ---
+## 查找maven repository
+* http://mvnrepository.com/
+* 通过此网站可以查找历史的maven工程版本号
+
+---
 ## 打包jar发布
 
 * 进入工程主目录

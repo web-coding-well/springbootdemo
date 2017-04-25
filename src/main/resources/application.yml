@@ -34,7 +34,9 @@ spring:
     # location: ./upload/tmp/ # 上传文件的临时目录
      max-file-size: 5MB # 最大支持文件大小
      max-request-size: 10MB # 最大支持请求大小
-
+  devtools:
+    restart:
+      exclude: static/**,templates/** #某些资源的更新不用触发重启
   #mvc:
     #view:
       #suffix: .html

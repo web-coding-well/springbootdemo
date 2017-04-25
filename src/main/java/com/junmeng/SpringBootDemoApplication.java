@@ -10,6 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * 官方文档：https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-installing-the-cli
+ */
 @SpringBootApplication
 @EnableTransactionManagement//开启事务支持
 @EnableAsync //使得@Async注解能够生效

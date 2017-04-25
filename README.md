@@ -103,6 +103,8 @@ a spring boot demo project
 * 按下快捷键 Ctrl+shift+Alt+/,选择Registry,打勾compiler.automake.allow.when.app.running
 * 重新启动项目即可看到热部署效果
 
+* livereload:http://livereload.com/extensions/
+
 ---
 ## 添加Thymeleaf或FreeMarker支持
 * 两者可以共存，只是Thymeleaf后缀为html,浏览器可以直接渲染，而FreeMarker后缀为ftl

@@ -81,7 +81,7 @@ a spring boot demo project
 * 代码使用日志
 * Logger logger =  LoggerFactory.getLogger(this.getClass());
 ---
-## 实现热部署（不完全）
+## 实现热部署
 * pom.xml中添加
 ```
 <dependency>
@@ -99,7 +99,9 @@ a spring boot demo project
 	</configuration>
 </plugin>
 ```
-* 快捷键Ctrl+F9，build project后刷新即可看到代码改动后的样子
+* IDEA->File->Settings->搜索compiler->打勾 Build project automatically
+* 按下快捷键 Ctrl+shift+Alt+/,选择Registry,打勾compiler.automake.allow.when.app.running
+* 重新启动项目即可看到热部署效果
 
 ---
 ## 添加Thymeleaf或FreeMarker支持
